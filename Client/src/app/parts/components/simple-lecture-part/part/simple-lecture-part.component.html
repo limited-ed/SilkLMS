@@ -1,0 +1,60 @@
+<div class="p-2">
+    <p-accordion [value]="['0','1']" [multiple]="true">
+        <p-accordion-panel value="0">
+            <p-accordion-header i18n>Main options</p-accordion-header>
+            <p-accordion-content>
+                <div class="w-100 flex flex-col gap-4">
+                    <div class="flex flex-col gap-2">
+                        <label for="height" class="font-medium" i18n>Width</label>
+                        <input pInputText id="width" aria-describedby="height-help" />
+                        <small i18n>Enter height of component(in %, px or rem).</small>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="height" class="font-medium" i18n>Height</label>
+                        <input pInputText id="height" aria-describedby="Height-help" />
+                        <small i18n>Enter height of component(in %, px or rem).</small>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="timer" class="font-medium" i18n>Timer</label>
+                        <input pInputText id="timer" aria-describedby="timer-help" />
+                        <small i18n>Enter time in minutes (0 for disabled).</small>
+                    </div>
+                </div>
+            </p-accordion-content>
+        </p-accordion-panel>
+        <p-accordion-panel value="1">
+            <p-accordion-header i18n>Pages</p-accordion-header>
+            <p-accordion-content>
+                <div class="flex flex-wrap gap-4 items-center ">
+                    @for (page of part().pages; track $index; let i=$index){
+                        <app-page [page]="i" (edit)="pageEdit($event)" >
+                            <div style="zoom: 0.4;" [innerHTML]="page">
+                              
+                            </div>
+                        </app-page>
+                    }
+
+                    <p-button icon="pi pi-plus" [rounded]="true" severity="success" [outlined]="true" (onClick)="addPage()"/>
+                </div>
+            </p-accordion-content>
+        </p-accordion-panel>
+        <p-accordion-panel value="2">
+            <p-accordion-header i18n>Result</p-accordion-header>
+            <p-accordion-content>
+                <div class="w-100 flex flex-col gap-4">
+                    <div class="flex flex-col gap-2">
+                        <label for="height" class="font-medium" i18n>Scores</label>
+                        <input pInputText id="width" aria-describedby="height-help" />
+                        <small i18n>Enter the number of points per task</small>
+                    </div>
+
+                </div>
+            </p-accordion-content>
+        </p-accordion-panel>
+    </p-accordion>
+    <div class="flex justify-center mt-4">
+        <p-button i18n-label label="Save part" variant="outlined" severity="success" />
+        <div class="px-1"></div>
+        <p-button i18n-label label="Cancel" severity="danger" />
+    </div>
+</div>

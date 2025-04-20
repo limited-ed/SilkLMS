@@ -1,0 +1,67 @@
+<p-tabs value="0" class="mx-5">
+    <p-tablist>
+        <p-tab value="0" i18n>Info</p-tab>
+        <p-tab value="1" i18n>Edit</p-tab>
+        <p-tab value="2" i18n>Options</p-tab>
+        <p-tab value="3" i18n>Users</p-tab>
+        <p-tab value="4" i18n>Result</p-tab>
+    </p-tablist>
+    <p-tabpanels>
+        <p-tabpanel value="0">
+            <p class="m-0">
+                {{cource?.description}}
+            </p>
+        </p-tabpanel>
+        <p-tabpanel value="1">
+
+            <form class="[&_p-iftalabel]:my-2">
+                <h1 i18n>Main info</h1>
+                <p-divider></p-divider>
+                <p-iftalabel>
+                    <input pInputText id="title" class="w-1/2" />
+                    <label for="title" i18n>Title</label>
+                </p-iftalabel>
+                <p-iftalabel>
+                    <input pInputText id="title" class="w-1/2" />
+                    <label for="title" i18n>Title</label>
+                </p-iftalabel>
+
+            </form>
+            <h1 i18n class="mt-8">Parts</h1>
+            @if (cource && cource.partItems  && cource.partItems.length > 0) {
+            <p-divider></p-divider>
+            }
+
+            @for(part of cource?.partItems; track part.id) {
+            <div class="my-2">
+                <p-panel class="my-2" header="part.title">
+                    <ng-template #icons>
+                        <p-button icon="pi pi-cog" severity="secondary" rounded text (onClick)="partDetail(part.id)" />
+                        
+                    </ng-template>
+                    {{part.type}}
+                </p-panel>
+            </div>
+
+            }
+            <p-divider></p-divider>
+            <div class="flex justify-center mt-4">
+
+                <p-button icon="pi pi-plus" [rounded]="true" severity="success" [outlined]="true"
+                    (onClick)="addClick()" />
+            </div>
+
+        </p-tabpanel>
+        <p-tabpanel value="2">
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                deleniti
+                atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+                similique
+                sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+                facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                impedit quo minus.
+            </p>
+        </p-tabpanel>
+    </p-tabpanels>
+</p-tabs>

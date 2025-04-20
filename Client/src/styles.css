@@ -1,0 +1,163 @@
+@import url(../node_modules/primeicons/primeicons.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+@import "tailwindcss";
+@plugin "tailwindcss-primeui";
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+    font-size: 14px;
+}
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+    --primary: var(--p-primary-color);
+    --primary-hover: var(--p-primary-50);
+    --outlined: var(--p-primary-200);
+    --color-gray-20: oklch(0.992 0.002 247.839)
+    
+}
+
+body {
+    margin: 0px;
+}
+.left {
+    position: absolute !important;
+    left: 15px;
+    }
+
+.dashboard-component{
+    height: calc(100vh - 170px);
+}
+
+.green {
+    color: green !important;
+}
+
+
+.blue {
+    color: dodgerblue  !important;
+}
+
+.red {color: red !important;
+}
+
+.pi {
+    font-size: inherit !important;
+}
+
+.p-card:hover {
+    background-color: var(--color-gray-20) ;
+}
+
+.page .p-panel {
+    height: 100% !important;
+}
+
+
+
+.themeSwitch {
+
+    input {
+        display: none;
+    }
+
+    label {
+        width: 60px;
+        height: 30px;
+
+        border-radius: 2rem;
+        display: block;
+        position: relative;
+    }
+
+    .elem {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 24px;
+        top: 2px;
+        left: 2px;
+        position: relative;
+
+         animation-name: disable; 
+        animation-duration: 300ms; 
+    }
+
+    input:checked+label .elem {
+        /* transform: translateX(2rem); */
+
+        animation-name: enable;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+
+    input+label .elem .pi-sun {
+        opacity: 1;
+        transition: all;
+        transition-duration: 300ms;
+    }
+
+    input:checked+label .elem .pi-sun {
+        opacity: 0;
+    }
+
+    input+label .elem .pi-moon {
+        opacity: 0;
+        transition: all;
+        transition-duration: 300ms;
+    }
+
+    input:checked+label .elem .pi-moon {
+        opacity: 1;
+    }
+
+
+
+    .pi-sun,
+    .pi-moon {
+        position: absolute;
+        transition: all;
+        transition-duration: 300ms;
+
+    }
+
+}
+
+
+@keyframes enable {
+    0% {
+        width: 24px;
+    }
+
+    50% {
+        width: 48px;
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(2rem);
+        width: 24px;
+    }
+}
+
+@keyframes disable {
+    0% {
+        transform: translateX(2rem);
+        width: 1.6rem
+    }
+
+    50% {
+        width: 3.2rem;
+        transform: translateX(0);
+    }
+
+    100% {
+        width: 1.6rem;
+    }
+}

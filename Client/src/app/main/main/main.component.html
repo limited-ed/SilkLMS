@@ -1,0 +1,41 @@
+<div class="h-screen w-full flex flex-column">
+    <div class="surface-overlay py-3 px-6 flex align-items-center justify-content-between relative lg:static">
+        <a pripple pstyleclass="#app-sidebar-12" enterclass="hidden" enteractiveclass="fadeinleft" leavetoclass="hidden"
+            leaveactiveclass="fadeoutleft"
+            class="p-ripple p-element cursor-pointer inline-flex align-items-center justify-content-center lg:hidden text-700">
+            <i class="pi pi-bars text-4xl"></i>
+            <span class="p-ink"></span>
+        </a>
+
+        <a pripple pstyleclass="@next" enterclass="hidden" leavetoclass="hidden"
+            class="p-ripple p-element cursor-pointer block lg:hidden text-700">
+            <i class="pi pi-ellipsis-v text-2xl"></i>
+            <span class="p-ink"></span>
+        </a>
+
+        <div class="w-auto lg:w-full">
+
+        </div>
+        <p-splitbutton text severity="secondary" [model]="avatarItems">
+            <ng-template #content>
+                <p-overlaybadge severity="danger">
+                    <p-avatar image="assets/user.png" size="large" shape="circle" [style.height]="'auto'" />
+                </p-overlaybadge>
+
+                <span>{{getUser?.fullName }}</span>
+            </ng-template>
+        </p-splitbutton>
+
+    </div>
+    <div class="max-w-full px-4 surface-overlay">
+
+        <p-breadcrumb class [model]="breadCrumb" [home]="home" />
+
+    </div>
+
+
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

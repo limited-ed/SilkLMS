@@ -1,0 +1,16 @@
+.nowrap  {
+    white-space: nowrap;
+}
+
+ha {
+    height: auto important;
+}
+
+.screen {
+    overflow: hidden;
+}
+
+ .main {
+    height: calc(100vh - 170px);
+    overflow: auto; 
+ }
