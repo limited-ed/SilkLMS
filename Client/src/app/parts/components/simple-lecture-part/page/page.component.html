@@ -1,0 +1,12 @@
+<p-panel class="max-w-64 w-64 max-h-64 h-64 overflow-hidden inline-block page">
+    <ng-template #header>
+        <div class="flex items-center gap-2">
+            <span class="font-bold" i18n>Page</span><span class="font-bold">№{{page()+1}}</span>
+        </div>
+    </ng-template>
+    <ng-template #icons>
+        <p-button icon="pi pi-file-edit" severity="success" rounded text (onClick)="edit.emit(page())"/>
+        <p-button icon="pi pi-trash" severity="danger" rounded text (onClick)="delete.emit(page())"/>
+    </ng-template>
+    <ng-content></ng-content>
+</p-panel>

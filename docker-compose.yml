@@ -1,0 +1,41 @@
+services:
+
+  api-server:
+    container_name: 'api-server'
+    image: 'api-server'
+    build:
+      context: .
+      dockerfile: Api/ApiServer/dockerfile
+    ports:
+     - "5000:5000"
+    depends_on:
+     - "postgres"
+    networks:
+      - lms-network
+
+  client:
+    container_name: 'client'
+    image: 'client'
+    build:
+      context: .
+      dockerfile: Client/dockerfile
+    ports:
+     - "4000:4000"
+    depends_on:
+     - 'api-server'
+    networks:
+      - lms-network
+
+
+  postgres:
+    container_name: 'postgres'
+    image: postgres
+    environment:
+      # change this for a "real" app!
+      POSTGRES_PASSWORD: 1
+    networks:
+      - lms-network
+
+networks:
+  lms-network:
+    driver: bridge

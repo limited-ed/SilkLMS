@@ -1,0 +1,8 @@
+<p-editor [(ngModel)]="editText"  class="w-full h-[70vh]" [style]="{ height: '70vh' }"/>
+
+
+    <div class="flex justify-end mt-4">
+        <p-button i18n-label label="Save" variant="outlined" severity="success" (onClick)="close(true)" />
+        <div class="px-1"></div>
+        <p-button i18n-label label="Cancel" severity="danger" (onClick)="close(false)"/>
+    </div>

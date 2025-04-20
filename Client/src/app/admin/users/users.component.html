@@ -1,0 +1,24 @@
+<div class="flex flex-row dashboard-component">
+
+ <!--   <div class="w-1/4 h-full overflow-auto">
+        <p-tree [value]="nodes"  selectionMode="single" (onNodeSelect)="nodeSelect($event)"></p-tree>
+    </div>-->
+    <div class="w-full h-full overflow-auto">
+        <div><p-menubar [model]="menuItems" /></div>
+       <p-table [value]="usersByGroup" selectionMode="single" [(selection)]="selectedUser" dataKey="id">
+            <ng-template #header>
+                <tr>
+                    <th i18n>Name</th>
+                    <th i18n>Role</th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-user>
+                <tr [pSelectableRow]="user">
+                    <td>{{ user.fullName }}</td>
+                    <td>{{ user.role}}</td>
+                </tr>
+            </ng-template> 
+        </p-table>
+    </div>
+
+</div>

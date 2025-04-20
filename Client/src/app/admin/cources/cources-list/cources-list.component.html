@@ -1,0 +1,32 @@
+
+
+<p-dataview [value]="cources">
+    <ng-template #header>
+        <div class="w-1/2 md:w-2/53 lg:w-1/4">
+            <p-inputgroup>
+                <input pInputText placeholder="Search" />
+                <p-inputgroup-addon>
+                    <p-button icon="pi pi-search" severity="secondary" variant="text" />
+                </p-inputgroup-addon>
+            </p-inputgroup>
+        </div>
+    </ng-template>
+
+    <ng-template #list let-items>
+        <div class="px-10">
+            @for(item of items; track item.id)
+            {
+            <div class="flex items-center gap-10 py-5 border-b-2 border-gray-300">
+                <div class="grow-1">
+                    <h1 class="text-2xl font-bold">{{item.title}}</h1>
+                    <p>{{item.description}}</p>
+                </div>
+                <div>
+                    <p-splitbutton  i18n-label label="View" (onClick)="view(item)" [model]="menuItems"  outlined/>
+                </div>
+            </div>
+            }
+        </div>
+
+    </ng-template>
+</p-dataview>
